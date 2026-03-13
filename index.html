@@ -274,5 +274,33 @@ width="100%" height="300">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
+<script>
+
+    document.getElementById("enquiryForm").addEventListener("submit", function(e){
+    
+    e.preventDefault();
+    
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var location = document.getElementById("location").value;
+    var message = document.getElementById("message").value;
+    
+    var whatsappMessage =
+    "New Borewell Enquiry:%0A"+
+    "Name: "+name+"%0A"+
+    "Phone: "+phone+"%0A"+
+    "Location: "+location+"%0A"+
+    "Requirement: "+message;
+    
+    /* THANK YOU MESSAGE */
+    
+    alert("Thank you for contacting Raghavendra Borewells. We will contact you shortly.");
+    
+    window.open("https://wa.me/917019886426?text="+whatsappMessage);
+    
+    });
+    
+    </script>
+
 </body>
 </html>
