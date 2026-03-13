@@ -31,14 +31,31 @@ body{
     
     .hero{
         height:100vh;
-        background:url("https://images.unsplash.com/photo-1605146768851-eda79da39897")
-        center/cover no-repeat;
+        background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e");
+        background-size:cover;
+        background-position:center;
         display:flex;
         align-items:center;
         justify-content:center;
         text-align:center;
         color:white;
         }
+        .card{
+            background:white;
+            padding:30px;
+            width:220px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition:0.4s;
+            cursor:pointer;
+            }
+            
+            .card:hover{
+            transform:translateY(-12px) scale(1.05);
+            box-shadow:0 15px 25px rgba(0,0,0,0.2);
+            }
     
     .hero h1{
     font-size:40px;
@@ -167,3 +184,15 @@ body{
         .gallery img:hover{
         transform:scale(1.05);
         }
+        .slider{
+            display:flex;
+            overflow-x:auto;
+            gap:20px;
+            padding:20px;
+            scroll-behavior:smooth;
+            }
+            
+            .slider img{
+            height:250px;
+            border-radius:10px;
+            }
