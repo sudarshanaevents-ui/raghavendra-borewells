@@ -1,49 +1,67 @@
 body{
-    font-family:Arial;
     margin:0;
+    font-family:Arial;
     background:#f5f7fa;
     }
     
     header{
     display:flex;
     justify-content:space-between;
-    padding:20px;
+    padding:15px 40px;
     background:#0d47a1;
     color:white;
+    align-items:center;
+    }
+    
+    .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    }
+    
+    .logo img{
+    height:40px;
     }
     
     nav a{
-    margin:10px;
     color:white;
+    margin:10px;
     text-decoration:none;
     }
     
     .hero{
+    height:100vh;
+    background:url("https://images.unsplash.com/photo-1503387762-592deb58ef4e") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:120px 20px;
-    background:linear-gradient(#1565c0,#0d47a1);
     color:white;
     }
     
-    .hero-buttons a{
+    .hero h1{
+    font-size:40px;
+    }
+    
+    .btn{
     padding:12px 25px;
     margin:10px;
     text-decoration:none;
     border-radius:5px;
     }
     
-    .call-btn{
+    .call{
     background:orange;
     color:white;
     }
     
-    .whatsapp-btn{
+    .whatsapp{
     background:#25D366;
     color:white;
     }
     
     section{
-    padding:70px 20px;
+    padding:60px 20px;
     text-align:center;
     }
     
@@ -54,49 +72,78 @@ body{
     gap:30px;
     }
     
-    .service-card{
+    .card{
     background:white;
     padding:30px;
+    width:200px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    }
+    
+    .card:hover{
+    transform:translateY(-10px);
+    }
+    
+    .reviews{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    }
+    
+    .review{
+    background:white;
+    padding:20px;
     width:250px;
     border-radius:10px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
     
-    .service-card i{
-    font-size:40px;
-    color:#1565c0;
-    }
-    
-    .gallery{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    }
-    
-    .gallery img{
-    width:300px;
-    border-radius:10px;
-    }
-    
-    .map{
-    margin-top:20px;
-    }
-    
     footer{
     background:#0d47a1;
     color:white;
-    padding:20px;
     text-align:center;
+    padding:20px;
     }
     
-    .floating-whatsapp{
+    .float-whatsapp{
     position:fixed;
     bottom:20px;
     right:20px;
     background:#25D366;
     color:white;
-    font-size:30px;
     padding:15px;
     border-radius:50%;
+    font-size:25px;
+    }
+    
+    .float-call{
+    position:fixed;
+    bottom:80px;
+    right:20px;
+    background:#ff9800;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    font-size:25px;
+    }
+    
+    /* MOBILE */
+    
+    @media(max-width:768px){
+    
+    header{
+    flex-direction:column;
+    }
+    
+    .hero h1{
+    font-size:28px;
+    }
+    
+    .services{
+    flex-direction:column;
+    align-items:center;
+    }
+    
     }
