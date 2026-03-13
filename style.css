@@ -1,0 +1,102 @@
+body{
+    font-family:Arial;
+    margin:0;
+    background:#f5f7fa;
+    }
+    
+    header{
+    display:flex;
+    justify-content:space-between;
+    padding:20px;
+    background:#0d47a1;
+    color:white;
+    }
+    
+    nav a{
+    margin:10px;
+    color:white;
+    text-decoration:none;
+    }
+    
+    .hero{
+    text-align:center;
+    padding:120px 20px;
+    background:linear-gradient(#1565c0,#0d47a1);
+    color:white;
+    }
+    
+    .hero-buttons a{
+    padding:12px 25px;
+    margin:10px;
+    text-decoration:none;
+    border-radius:5px;
+    }
+    
+    .call-btn{
+    background:orange;
+    color:white;
+    }
+    
+    .whatsapp-btn{
+    background:#25D366;
+    color:white;
+    }
+    
+    section{
+    padding:70px 20px;
+    text-align:center;
+    }
+    
+    .services{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    }
+    
+    .service-card{
+    background:white;
+    padding:30px;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .service-card i{
+    font-size:40px;
+    color:#1565c0;
+    }
+    
+    .gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    }
+    
+    .gallery img{
+    width:300px;
+    border-radius:10px;
+    }
+    
+    .map{
+    margin-top:20px;
+    }
+    
+    footer{
+    background:#0d47a1;
+    color:white;
+    padding:20px;
+    text-align:center;
+    }
+    
+    .floating-whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    font-size:30px;
+    padding:15px;
+    border-radius:50%;
+    }
