@@ -30,17 +30,17 @@ body{
     }
     
     .hero{
-        height:100vh;
-        background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e");
+        background-image:url("images/borewell-drilling.jpg");
         background-size:cover;
         background-position:center;
+        background-repeat:no-repeat;
+        height:90vh;
         display:flex;
         align-items:center;
         justify-content:center;
         text-align:center;
         color:white;
+        padding:20px;
         }
         .card{
             background:white;
