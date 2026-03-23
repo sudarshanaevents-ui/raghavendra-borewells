@@ -1,6 +1,13 @@
+/* GLOBAL */
+
 body{
     margin:0;
-    font-family:Arial;
+    font-family:Arial, sans-serif;
+    background:#f5f7fa;
+    }
+    
+    html{
+    scroll-behavior:smooth;
     }
     
     /* HEADER */
@@ -13,30 +20,51 @@ body{
     background:#0d47a1;
     color:white;
     position:fixed;
-    width:100%;
     top:0;
+    width:100%;
     z-index:999;
+    flex-wrap:wrap;
     }
+    
+    /* LOGO + TITLE */
     
     .logo{
     display:flex;
     align-items:center;
     gap:10px;
+    white-space:nowrap; /* 🔥 keeps text in one line */
     }
     
     .logo img{
     height:45px;
     width:45px;
     border-radius:50%;
+    object-fit:cover;
+    }
+    
+    .logo h2{
+    font-size:16px;
+    margin:0;
+    font-weight:600;
+    letter-spacing:0.5px;
+    }
+    
+    /* NAVIGATION */
+    
+    nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
     }
     
     nav a{
     color:white;
-    margin:10px;
+    margin:8px 10px;
     text-decoration:none;
+    font-size:14px;
     }
     
-    /* HERO */
+    /* HERO SECTION */
     
     .hero{
     margin-top:80px;
@@ -51,9 +79,11 @@ body{
     background-image:url("https://images.pexels.com/photos/21047659/pexels-photo-21047659.jpeg?auto=compress&cs=tinysrgb&w=1600");
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     }
     
     /* DARK OVERLAY */
+    
     .hero::before{
     content:"";
     position:absolute;
@@ -67,14 +97,21 @@ body{
     .hero-content{
     position:relative;
     z-index:2;
+    padding:20px;
     }
     
     .hero h1{
     font-size:40px;
+    margin-bottom:10px;
     }
     
     .hero h2{
     font-size:22px;
+    margin-bottom:10px;
+    }
+    
+    .hero p{
+    font-size:16px;
     }
     
     /* BUTTONS */
@@ -86,6 +123,7 @@ body{
     border-radius:5px;
     text-decoration:none;
     color:white;
+    font-size:14px;
     }
     
     .call{
@@ -96,26 +134,55 @@ body{
     background:#25D366;
     }
     
-    /* SERVICES */
+    /* SECTIONS */
     
     section{
     padding:60px 20px;
     text-align:center;
     }
     
+    /* SERVICES */
+    
     .services{
     display:flex;
     justify-content:center;
-    gap:20px;
     flex-wrap:wrap;
+    gap:20px;
     }
     
     .card{
+    background:white;
+    padding:25px;
+    width:220px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    }
+    
+    .card:hover{
+    transform:translateY(-10px);
+    }
+    
+    /* WHY SECTION */
+    
+    .why-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    }
+    
+    .why-card{
     background:white;
     padding:20px;
     width:220px;
     border-radius:10px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .why-card i{
+    font-size:30px;
+    color:#0d47a1;
     }
     
     /* GALLERY */
@@ -132,12 +199,49 @@ body{
     border-radius:10px;
     }
     
+    /* REVIEWS */
+    
+    .reviews{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    }
+    
+    .review{
+    background:white;
+    padding:20px;
+    width:250px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* AREAS */
+    
+    #areas{
+    background:#f9f9f9;
+    }
+    
+    #areas p{
+    max-width:900px;
+    margin:auto;
+    margin-bottom:15px;
+    line-height:1.6;
+    }
+    
+    /* CONTACT */
+    
+    #contact p{
+    margin:10px 0;
+    }
+    
     /* FOOTER */
     
     footer{
     background:#0d47a1;
     color:white;
-    padding:15px;
+    text-align:center;
+    padding:20px;
     }
     
     /* FLOAT BUTTONS */
@@ -150,6 +254,8 @@ body{
     color:white;
     padding:15px;
     border-radius:50%;
+    font-size:20px;
+    z-index:999;
     }
     
     .float-whatsapp{
@@ -160,9 +266,11 @@ body{
     color:white;
     padding:15px;
     border-radius:50%;
+    font-size:20px;
+    z-index:999;
     }
     
-    /* MOBILE DESIGN */
+    /* ================= MOBILE DESIGN ================= */
     
     @media(max-width:768px){
     
@@ -171,14 +279,23 @@ body{
     text-align:center;
     }
     
+    /* allow wrapping on mobile */
+    .logo{
+    white-space:normal;
+    flex-direction:column;
+    }
+    
+    .logo h2{
+    font-size:14px;
+    }
+    
     nav{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    margin-top:10px;
     }
     
     .hero{
     height:80vh;
+    padding:10px;
     }
     
     .hero h1{
@@ -187,6 +304,10 @@ body{
     
     .hero h2{
     font-size:18px;
+    }
+    
+    .hero p{
+    font-size:14px;
     }
     
     .btn{
@@ -204,8 +325,35 @@ body{
     width:90%;
     }
     
+    .why-container{
+    flex-direction:column;
+    align-items:center;
+    }
+    
+    .why-card{
+    width:90%;
+    }
+    
+    .reviews{
+    flex-direction:column;
+    align-items:center;
+    }
+    
+    .review{
+    width:90%;
+    }
+    
     .slider img{
     height:180px;
+    }
+    
+    .float-call{
+    bottom:70px;
+    right:15px;
+    }
+    
+    .float-whatsapp{
+    right:15px;
     }
     
     }
