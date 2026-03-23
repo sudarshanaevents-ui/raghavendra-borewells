@@ -36,7 +36,9 @@ content="borewell drilling Bangalore, borewell drilling near me, borewell drilli
     
 <h2>Shree Raghavendra Tirtha Hightech Borewells and PowerDrillers</h2>
 </div>
-
+<div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
 <nav>
 <a href="#">Home</a>
 <a href="#services">Services</a>
@@ -45,7 +47,14 @@ content="borewell drilling Bangalore, borewell drilling near me, borewell drilli
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 </nav>
-
+<nav id="navMenu">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <!-- HERO SECTION -->
@@ -328,6 +337,17 @@ width="100%" height="300">
     });
     
     </script>
+    <script>
+        function toggleMenu(){
+          document.getElementById("navMenu").classList.toggle("active");
+        }
+        
+        document.querySelectorAll("#navMenu a").forEach(link => {
+          link.addEventListener("click", () => {
+            document.getElementById("navMenu").classList.remove("active");
+          });
+        });
+        </script>
 
 </body>
 </html>
