@@ -33,10 +33,12 @@ body{
     }
     
     .hero{
-        background-image:url("https://images.unsplash.com/photo-1581092921461-7d65ca45b43a");
+        background-image:url("https://images.pexels.com/photos/162568/drilling-machine-construction-site-162568.jpeg");
         background-size:cover;
         background-position:center;
         background-repeat:no-repeat;
+        width:100%;
+        object-fit:cover;
         height:90vh;
         display:flex;
         align-items:center;
