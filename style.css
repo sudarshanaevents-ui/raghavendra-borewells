@@ -4,13 +4,14 @@ body{
     margin:0;
     font-family:Arial, sans-serif;
     background:#f5f7fa;
+    transition:0.3s;
     }
     
     html{
     scroll-behavior:smooth;
     }
     
-    /* HEADER */
+    /* ================= HEADER ================= */
     
     header{
     display:flex;
@@ -22,17 +23,15 @@ body{
     position:fixed;
     top:0;
     width:100%;
-    z-index:999;
-    flex-wrap:wrap;
+    z-index:1000;
     }
     
-    /* LOGO + TITLE */
+    /* LOGO */
     
     .logo{
     display:flex;
     align-items:center;
     gap:10px;
-    white-space:nowrap; /* 🔥 keeps text in one line */
     }
     
     .logo img{
@@ -43,31 +42,38 @@ body{
     }
     
     .logo h2{
-    font-size:16px;
     margin:0;
-    font-weight:600;
-    letter-spacing:0.5px;
+    font-size:16px;
+    white-space:nowrap;
     }
     
-    /* NAVIGATION */
+    /* NAV */
     
     nav{
     display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
     }
     
     nav a{
     color:white;
-    margin:8px 10px;
+    margin:0 10px;
     text-decoration:none;
     font-size:14px;
     }
     
-    /* HERO SECTION */
+    /* ================= HAMBURGER ================= */
+    
+    .menu-toggle{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+    color:white;
+    z-index:1001;
+    }
+    
+    /* ================= HERO ================= */
     
     .hero{
-    margin-top:80px;
+    margin-top:70px;
     height:90vh;
     display:flex;
     align-items:center;
@@ -79,7 +85,6 @@ body{
     background-image:url("https://images.pexels.com/photos/21047659/pexels-photo-21047659.jpeg?auto=compress&cs=tinysrgb&w=1600");
     background-size:cover;
     background-position:center;
-    background-repeat:no-repeat;
     }
     
     /* DARK OVERLAY */
@@ -101,13 +106,11 @@ body{
     }
     
     .hero h1{
-    font-size:40px;
-    margin-bottom:10px;
+    font-size:36px;
     }
     
     .hero h2{
     font-size:22px;
-    margin-bottom:10px;
     }
     
     .hero p{
@@ -123,7 +126,6 @@ body{
     border-radius:5px;
     text-decoration:none;
     color:white;
-    font-size:14px;
     }
     
     .call{
@@ -134,7 +136,7 @@ body{
     background:#25D366;
     }
     
-    /* SECTIONS */
+    /* ================= SECTIONS ================= */
     
     section{
     padding:60px 20px;
@@ -145,8 +147,8 @@ body{
     
     .services{
     display:flex;
-    justify-content:center;
     flex-wrap:wrap;
+    justify-content:center;
     gap:20px;
     }
     
@@ -156,14 +158,13 @@ body{
     width:220px;
     border-radius:10px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
     }
     
     .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px);
     }
     
-    /* WHY SECTION */
+    /* WHY */
     
     .why-container{
     display:flex;
@@ -180,18 +181,12 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
     
-    .why-card i{
-    font-size:30px;
-    color:#0d47a1;
-    }
-    
     /* GALLERY */
     
     .slider{
     display:flex;
     overflow-x:auto;
     gap:10px;
-    padding:10px;
     }
     
     .slider img{
@@ -213,7 +208,6 @@ body{
     padding:20px;
     width:250px;
     border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
     
     /* AREAS */
@@ -225,8 +219,6 @@ body{
     #areas p{
     max-width:900px;
     margin:auto;
-    margin-bottom:15px;
-    line-height:1.6;
     }
     
     /* CONTACT */
@@ -240,7 +232,6 @@ body{
     footer{
     background:#0d47a1;
     color:white;
-    text-align:center;
     padding:20px;
     }
     
@@ -254,8 +245,6 @@ body{
     color:white;
     padding:15px;
     border-radius:50%;
-    font-size:20px;
-    z-index:999;
     }
     
     .float-whatsapp{
@@ -266,11 +255,26 @@ body{
     color:white;
     padding:15px;
     border-radius:50%;
-    font-size:20px;
-    z-index:999;
     }
     
-    /* ================= MOBILE DESIGN ================= */
+    /* ================= DARK MODE ================= */
+    
+    body.dark{
+    background:#121212;
+    color:white;
+    }
+    
+    body.dark header{
+    background:#000;
+    }
+    
+    body.dark .card,
+    body.dark .review,
+    body.dark .why-card{
+    background:#1e1e1e;
+    }
+    
+    /* ================= MOBILE ================= */
     
     @media(max-width:768px){
     
@@ -279,23 +283,50 @@ body{
     text-align:center;
     }
     
-    /* allow wrapping on mobile */
+    /* LOGO CENTER */
     .logo{
-    white-space:normal;
     flex-direction:column;
+    align-items:center;
     }
     
+    /* TEXT WRAP */
     .logo h2{
+    white-space:normal;
     font-size:14px;
     }
     
-    nav{
-    margin-top:10px;
+    /* HAMBURGER */
+    .menu-toggle{
+    display:block;
+    position:absolute;
+    right:15px;
+    top:15px;
     }
     
+    /* NAV SLIDE */
+    nav{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    background:#0d47a1;
+    flex-direction:column;
+    transform:translateY(-100%);
+    transition:0.4s;
+    }
+    
+    nav.active{
+    transform:translateY(70px);
+    }
+    
+    nav a{
+    padding:12px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    }
+    
+    /* HERO */
     .hero{
     height:80vh;
-    padding:10px;
     }
     
     .hero h1{
@@ -310,84 +341,18 @@ body{
     font-size:14px;
     }
     
-    .btn{
-    display:block;
-    width:80%;
-    margin:10px auto;
-    }
-    
-    .services{
-    flex-direction:column;
-    align-items:center;
-    }
-    
-    .card{
-    width:90%;
-    }
-    
-    .why-container{
-    flex-direction:column;
-    align-items:center;
-    }
-    
-    .why-card{
-    width:90%;
-    }
-    
-    .reviews{
-    flex-direction:column;
-    align-items:center;
-    }
-    
+    /* CARDS */
+    .card,
+    .why-card,
     .review{
     width:90%;
     }
     
-    .slider img{
-    height:180px;
-    }
-    
-    .float-call{
-    bottom:70px;
-    right:15px;
-    }
-    
-    .float-whatsapp{
-    right:15px;
-    }
-    
-    }
-    /* HAMBURGER BUTTON */
-.menu-toggle{
-    display:none;
-    font-size:24px;
-    cursor:pointer;
-    }
-    
-    /* MOBILE MENU */
-    @media(max-width:768px){
-    
-    .menu-toggle{
+    /* BUTTONS */
+    .btn{
     display:block;
-    position:absolute;
-    right:20px;
-    top:15px;
-    }
-    
-    nav{
-    display:none;
-    flex-direction:column;
-    width:100%;
-    background:#0d47a1;
-    }
-    
-    nav a{
-    padding:10px;
-    border-top:1px solid rgba(255,255,255,0.2);
-    }
-    
-    nav.active{
-    display:flex;
+    width:80%;
+    margin:10px auto;
     }
     
     }
