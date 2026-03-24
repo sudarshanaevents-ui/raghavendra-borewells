@@ -14,49 +14,59 @@ body{
     /* ================= HEADER ================= */
     
     header{
-        display:flex;
-        align-items:center;
-        justify-content:center; /* 🔥 center everything */
-        position:fixed;
-        top:0;
-        width:100%;
-        background:#0d47a1;
-        padding:10px 15px;
-        z-index:1000;
-        }
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+    background:#0d47a1;
+    padding:10px 15px;
+    z-index:1000;
+    }
     
-    /* LOGO */
+    /* LOGO CONTAINER */
     
     .logo{
-        display:flex;
-        align-items:center;
-        gap:10px;
-        margin:auto; /* 🔥 centers logo block */
-        }
+    display:flex;
+    align-items:center;
+    position:relative;
+    width:100%;
+    }
+    
+    /* LOGO IMAGE */
     
     .logo img{
     height:45px;
     width:45px;
     border-radius:50%;
     object-fit:cover;
+    z-index:2;
     }
     
-    .logo h2{
-        margin:0;
-        font-size:16px;
-        white-space:nowrap;
-        text-align:center;
-        }
+    /* TITLE (MAIN FIX) */
     
-    /* NAV */
+    .logo h2{
+    position:absolute;
+    left:50%;
+    transform:translateX(-40%); /* 🔥 center + slight right */
+    margin:0;
+    font-size:16px;
+    white-space:nowrap;
+    color:white; /* 🔥 WHITE COLOR */
+    text-align:center;
+    }
+    
+    /* ================= NAV ================= */
     
     nav{
     display:flex;
+    gap:10px;
     }
     
     nav a{
     color:white;
-    margin:0 10px;
     text-decoration:none;
     font-size:14px;
     }
@@ -64,13 +74,55 @@ body{
     /* ================= HAMBURGER ================= */
     
     .menu-toggle{
-        position:absolute;
-        right:15px;
-        top:15px;
-        font-size:26px;
-        color:white;
-        cursor:pointer;
-        }
+    display:none;
+    }
+    
+    @media(max-width:768px){
+    
+    .menu-toggle{
+    display:block;
+    position:absolute;
+    right:15px;
+    top:20px;
+    font-size:26px;
+    color:white;
+    z-index:1001;
+    cursor:pointer;
+    }
+    
+    }
+    
+    /* ================= MOBILE NAV ================= */
+    
+    @media(max-width:768px){
+    
+    nav{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#0d47a1;
+    flex-direction:column;
+    
+    /* hidden */
+    max-height:0;
+    overflow:hidden;
+    
+    transition:max-height 0.4s ease-in-out;
+    z-index:999;
+    }
+    
+    nav.active{
+    max-height:300px;
+    }
+    
+    nav a{
+    padding:12px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    text-align:center;
+    }
+    
+    }
     
     /* ================= HERO ================= */
     
@@ -89,7 +141,7 @@ body{
     background-position:center;
     }
     
-    /* DARK OVERLAY */
+    /* OVERLAY */
     
     .hero::before{
     content:"";
@@ -113,10 +165,6 @@ body{
     
     .hero h2{
     font-size:22px;
-    }
-    
-    .hero p{
-    font-size:16px;
     }
     
     /* BUTTONS */
@@ -162,10 +210,6 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
     
-    .card:hover{
-    transform:translateY(-8px);
-    }
-    
     /* WHY */
     
     .why-container{
@@ -180,7 +224,6 @@ body{
     padding:20px;
     width:220px;
     border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
     }
     
     /* GALLERY */
@@ -216,11 +259,6 @@ body{
     
     #areas{
     background:#f9f9f9;
-    }
-    
-    #areas p{
-    max-width:900px;
-    margin:auto;
     }
     
     /* CONTACT */
@@ -259,82 +297,32 @@ body{
     border-radius:50%;
     }
     
-    /* ================= DARK MODE ================= */
-    
-    body.dark{
-    background:#121212;
-    color:white;
-    }
-    
-    body.dark header{
-    background:#000;
-    }
-    
-    body.dark .card,
-    body.dark .review,
-    body.dark .why-card{
-    background:#1e1e1e;
-    }
-    
-    /* ================= MOBILE ================= */
+    /* ================= MOBILE TITLE FIX ================= */
     
     @media(max-width:768px){
-
-        header{
-        flex-direction:column;
-        justify-content:center;
-        text-align:center;
-        }
-        
-        /* stack logo + text */
-        .logo{
-        flex-direction:column;
-        align-items:center;
-        }
-
-        .logo{
-            position:relative;
-            left:10px; /* adjust slightly if needed */
-            }
-        
-        /* allow wrapping */
-        .logo h2{
-        white-space:normal;
-        font-size:14px;
-        }
-        
-        
     
-    /* HAMBURGER */
-    .menu-toggle{
-    display:block;
-    position:absolute;
-    right:15px;
-    top:15px;
-    }
-    
-    /* NAV SLIDE */
-    nav{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    background:#0d47a1;
+    header{
     flex-direction:column;
-    transform:translateY(-100%);
-    transition:0.4s;
+    height:auto;
+    padding:10px;
     }
     
-    nav.active{
-    transform:translateY(70px);
+    /* STACK */
+    .logo{
+    flex-direction:column;
+    align-items:center;
     }
     
-    nav a{
-    padding:12px;
-    border-top:1px solid rgba(255,255,255,0.2);
+    /* RESET POSITION */
+    .logo h2{
+    position:static;
+    transform:none;
+    white-space:normal;
+    font-size:14px;
+    margin-top:5px;
+    text-align:center;
     }
     
-    /* HERO */
     .hero{
     height:80vh;
     }
@@ -347,18 +335,12 @@ body{
     font-size:18px;
     }
     
-    .hero p{
-    font-size:14px;
-    }
-    
-    /* CARDS */
     .card,
-    .why-card,
-    .review{
+    .review,
+    .why-card{
     width:90%;
     }
     
-    /* BUTTONS */
     .btn{
     display:block;
     width:80%;
